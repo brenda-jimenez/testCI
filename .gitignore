@@ -1,0 +1,38 @@
+# OSX
+#
+.DS_Store
+
+# log
+yarn-error.log
+npm-debug.log
+lerna-debug.log
+
+# cache
+.jest
+
+# process
+.env
+.vscode
+
+# test
+coverage
+
+# dependencies
+node_modules
+
+# build
+build
+dist
+env-config.js
+*.js.map
+
+# etc
+analytics.tgz
+packages/automation-api-server/src/sample-data/*.js
+*.diff
+
+
+.idea/*
+patches
+*.log
+

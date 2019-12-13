@@ -1,0 +1,67 @@
+{
+  "name": "testCI",
+  "private": true,
+  "license": "ISC",
+  "scripts": {
+    "init": "bash ./bin/init.sh",
+    "build": "lerna run build --stream",
+    "build:ufo": "bash ./bin/build_ufo.sh",
+    "clean": "lerna clean --yes && lerna run clean",
+    "bootstrap": "yarn && lerna bootstrap",
+    "commit": "git-cz",
+    "cz": "git-cz",
+    "ufo": "bash ./bin/dev_ufo.sh",
+    "rebuild": "bash ./bin/rebuild.sh",
+    "release": "bash ./bin/release.sh",
+    "release:staging": "bash ./bin/release_staging.sh"
+  },
+  "devDependencies": {
+    "@babel/core": "7.6.4",
+    "@babel/preset-typescript": "7.7.2",
+    "@commitlint/cli": "8.2.0",
+    "@commitlint/config-conventional": "8.2.0",
+    "@types/node": "12.12.3",
+    "commitizen": "4.0.3",
+    "cz-conventional-changelog": "3.0.2",
+    "husky": "3.0.9",
+    "lerna": "3.18.3",
+    "lint-staged": "9.4.2"
+  },
+  "engines": {
+    "node": ">=10.15.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "scope-case": [
+        0,
+        "never",
+        []
+      ],
+      "subject-case": [
+        0,
+        "never",
+        []
+      ]
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}

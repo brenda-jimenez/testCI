@@ -1,0 +1,13 @@
+{
+  "packages": ["packages/*"],
+  "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "command": {
+    "version": {
+      "conventionalCommits": true,
+      "allowBranch": ["master", "qa", "uat", "staging", "production"],
+      "message": "chore(release): publish"
+    }
+  }
+}
